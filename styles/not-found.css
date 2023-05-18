@@ -1,0 +1,47 @@
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  .badge {
+    background-color: rgb(149 186 243 / 20%);
+    color: var(--primary);
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .title {
+    font-weight: 900;
+    font-weight: bolder;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .desc {
+    color: var(--disabled);
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  .btn-group {
+    margin-top: 2rem;
+    display: flex;
+    gap: 10px;
+  }
+}

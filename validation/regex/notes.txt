@@ -1,0 +1,29 @@
+const USERNAME_REGEX = /^(?!.*[_.]{2})(?![0-9])[a-zA-Z0-9_.]{4,15}$/
+MIN:4
+MAX:15
+
+Valid usernames:
+
+john.doe
+john_doe
+johndoe
+j_doe123
+johndoe1234
+Jdoe_123
+j.doe_123
+j0hn_doe
+j_doe
+Invalid usernames:
+
+1johndoe (starts with a number)
+john..doe (contains two consecutive dots)
+john__doe (contains two consecutive underscores)
+johndoe123456789012345 (more than 20 characters)
+John_doe (starts with a capital letter)
+john@doe (contains invalid character '@')
+john-doe (contains invalid character '-')
+.johndoe (starts with a dot)
+johndoe_ (ends with an underscore)
+johndoe. (ends with a dot)
+
+

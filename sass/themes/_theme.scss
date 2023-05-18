@@ -1,0 +1,47 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    // dark theme
+    color-scheme: dark;
+    --bg: #{$bg};
+    --bg-200: #{$bg-200};
+    --bg-200: #{$bg-200};
+    --bg-500: #{$bg-500};
+
+    --text: #{$text};
+    // --gray: #{$gray};
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f5f8fa;
+    --bg-200: rgb(245, 245, 245);
+    --bg-200: #d1d4de;
+    --bg-500: #d4d7e0;
+
+    --text: #040405;
+    --gray: #585858;
+  }
+}
+
+/* 2 */
+[data-theme="light"] {
+  --bg: #f5f8fa;
+  --bg-200: rgb(245, 245, 245);
+  --bg-200: #d1d4de;
+  --bg-500: #d4d7e0;
+
+  --text: #040405;
+  --gray: #585858;
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a1d;
+  --bg-200: #242428;
+  --bg-200: #242428;
+  --bg-500: #25282c;
+
+  --text: #e1e1eb;
+  --gray: #b9b8bd;
+}

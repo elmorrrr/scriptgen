@@ -1,0 +1,92 @@
+.skeleton {
+  user-select: none;
+  pointer-events: none;
+  cursor: wait;
+
+  // remove image inside image container
+  .image-container > * {
+    display: none !important;
+  }
+
+  div:nth-of-type(2) > * {
+    // hide elements content in info
+    justify-content: space-evenly !important;
+    color: transparent !important;
+    height: 15px;
+    width: 70px;
+    border-radius: 6px;
+
+    // style with odd elements
+    &:nth-child(2) {
+      width: 150px;
+    }
+  }
+
+  // add skeleton animation
+  .image-container,
+  div:nth-of-type(2) > * {
+    animation: skeleton 1s linear infinite alternate;
+    @keyframes skeleton {
+      0% {
+        background-color: let(bg-400);
+      }
+
+      100% {
+        background-color: let(bg-500);
+      }
+    }
+  }
+}
+
+.sidebar.skeleton {
+  .links {
+    dd:nth-child(odd) {
+      width: 80px !important;
+    }
+    dd {
+      border-radius: 6px;
+      height: 12px;
+      margin: 10px -6px 0;
+      width: 71%;
+      animation: skeleton-animation 1s linear infinite alternate;
+      @keyframes skeleton-animation {
+        0% {
+          background-color: var(--bg-clr);
+        }
+
+        100% {
+          background-color: var(--bg-clr-400);
+        }
+      }
+    }
+  }
+}
+
+.section-artist.skeleton {
+  background: #1f1f23;
+  margin: 0 50px 0 0;
+  .desc {
+    margin-top: 10px;
+  }
+  .artist-img,
+  .ele {
+    animation: image-skeleton-animation 1s linear infinite alternate;
+    height: 15px;
+    border-radius: 6px;
+    height: 11px;
+    width: 90px;
+
+    @keyframes image-skeleton-animation {
+      0% {
+        background-color: var(--bg-clr-400);
+      }
+
+      100% {
+        background-color: var(--bg-clr-500);
+      }
+    }
+  }
+  .ele {
+    margin-top: -20px;
+  }
+}

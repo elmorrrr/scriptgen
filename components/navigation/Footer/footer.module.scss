@@ -1,0 +1,23 @@
+$footer-height: 100px;
+$color: inherit;
+$bg: rgba(var(--callout-rgb), 0.5);
+$font-size: 1rem;
+$font-weight: 500;
+$border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+
+.footer {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  .footer_content {
+    .links {
+      li {
+        a {
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

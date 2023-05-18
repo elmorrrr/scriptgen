@@ -1,0 +1,82 @@
+// Reset
+// @import "base/reset";
+// variables & functions
+@import "abstracts/variables";
+@import "abstracts/colors";
+@import "abstracts/functions";
+@import "abstracts/breakpoints";
+@import "utils/utils";
+
+// Components
+@import "components/buttons";
+//sections
+
+::placeholder {
+  // color: lighten($color: $text, $amount: 20);
+  color: let(mute);
+}
+
+::selection {
+  background-color: let(primary);
+  color: rgb(255, 255, 255);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-200);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.text.gradient {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, #4085e7 0%, #44c189 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  user-select: none;
+}
+
+.image-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.shadow {
+  box-shadow: 1px 5px 10px 1px #0000002c;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

@@ -1,0 +1,128 @@
+.item.active {
+  background-color: let(bg-200);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: space-between;
+  // padding: 8px 20px;
+  padding: 8px 10px;
+  border-radius: let(radius);
+  color: let(mute);
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+
+  &:hover {
+    background-color: let(bg-200);
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+
+    .order {
+      margin: 0 5px;
+    }
+
+    .image-container {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 100%;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .name {
+        font-weight: 500;
+        font-size: 1em;
+        color: let(text);
+      }
+
+      .subtitle {
+        font-size: 0.93em;
+        font-weight: 400;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .right {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+
+    .icon {
+      color: let(text);
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .duration,
+  .date,
+  .order {
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+
+//
+// skeleton
+//
+
+.item.skeleton {
+  background: #1f1f23;
+  user-select: none;
+  cursor: wait;
+
+  // remove image inside image container
+  .image-container > * {
+    display: none !important;
+  }
+
+  .info {
+    justify-content: space-evenly !important;
+  }
+
+  .info > * {
+    // hide elements content in info
+    color: transparent !important;
+    height: 10px;
+    width: 70px;
+    border-radius: 6px;
+
+    // style with odd elements
+    &:nth-child(2) {
+      width: 150px;
+    }
+  }
+
+  // add skeleton animation
+  .info > *,
+  .image-container {
+    animation: skeleton-animation 1s linear infinite alternate;
+    @keyframes skeleton-animation {
+      0% {
+        background-color: let(bg-200);
+      }
+
+      100% {
+        background-color: let(bg-500);
+      }
+    }
+  }
+}

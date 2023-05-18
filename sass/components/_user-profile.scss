@@ -1,0 +1,94 @@
+.user-profile {
+  &-container {
+    margin-top: 40px;
+  }
+}
+
+// user Header
+.user-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 100px;
+
+  .image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100%;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 5px;
+
+    .user-type > h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: let(mute);
+    }
+
+    .username {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .icon {
+      margin-right: auto;
+      margin-left: -3px;
+    }
+
+    svg {
+      font-size: 18px;
+    }
+  }
+}
+
+// tablist (smallnavlinks)
+.tablist {
+  color: let(mute);
+}
+
+.tablist-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0px;
+  // margin-left: -20px;
+  // gap: 10px;
+
+  li {
+    color: inherit;
+    font-size: inherit;
+    position: relative;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    cursor: pointer;
+    &:hover {
+      color: let(text);
+    }
+  }
+
+  a.active {
+    color: let(text);
+  }
+
+  a.active::after {
+    background-color: var(--secondary-clr);
+    content: '';
+    width: 40%;
+    height: 2px;
+    color: green;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+  }
+}

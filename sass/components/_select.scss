@@ -1,0 +1,42 @@
+.group {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  width: 220px;
+
+  select {
+    min-width: auto;
+    // width:;
+  }
+
+  select:first-of-type {
+    grid-column: 1 / -1;
+  }
+  select:nth-of-type(2) {
+    grid-column: 1 / 6;
+  }
+  button {
+    grid-column: 6;
+  }
+}
+
+select {
+  background: let(bg-200);
+  border: 1px solid let(border);
+  border-radius: let(radius);
+  height: 40px;
+  min-width: 180px;
+  padding: 7px;
+  font-size: 15px;
+  &:focus {
+    outline-style: solid;
+    outline-color: let(primary);
+  }
+  option {
+    color: let(text) !important;
+    background-color: let(bg-200);
+  }
+  option:hover {
+    background: let(primary);
+  }
+}

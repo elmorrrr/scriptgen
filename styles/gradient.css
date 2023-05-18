@@ -1,0 +1,87 @@
+.bg {
+  --scheme: 0, 0, 255;
+  --speed: 20s;
+
+  @media (prefers-color-scheme: light) {
+    --primary-glow: conic-gradient(
+      from 180deg at 50% 50%,
+      rgba(var(--scheme), 0.34) 0deg,
+      rgba(var(--scheme), 0.2) 55deg,
+      rgba(var(--scheme), 0.84) 120deg,
+      rgba(var(--scheme), 0.2) 160deg,
+      transparent 360deg
+    );
+    --secondary-glow: radial-gradient(
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --primary-glow: radial-gradient(
+      rgba(var(--scheme), 0.3),
+      rgba(1, 65, 255, 0)
+    );
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(var(--scheme), 0),
+      rgba(var(--scheme), 0),
+      rgba(var(--scheme), 0.2)
+    );
+  }
+
+  &:before {
+    background: var(
+      --secondary-glow
+    ); /* Use the value of --secondary-glow as the background color */
+
+    border-radius: 50%;
+    width: 480px;
+    height: 360px;
+    margin-left: -400px;
+  }
+
+  &:after {
+    background: var(
+      --primary-glow
+    ); /* Use the value of --primary-glow as the background color */
+    width: 240px;
+    height: 180px;
+    z-index: -1;
+    animation: rotate var(--speed) infinite linear;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    left: 50%;
+    position: absolute;
+    filter: blur(45px);
+    transform: translateZ(0);
+  }
+
+  & > * {
+    z-index: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.bg-danger {
+  --scheme: 255, 0, 0;
+}
+
+.bg-warn {
+  --scheme: 255, 191, 0;
+}
+
+.bg-success {
+  --scheme: 60, 179, 113;
+}

@@ -1,0 +1,41 @@
+.forms {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+
+  @media (max-width: 475px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* apple not support  nested css yet */
+@media (max-width: 475px) {
+  .forms {
+    grid-template-columns: 1fr;
+  }
+}
+
+.react-tel-input .form-control {
+  max-width: 385px !important;
+  height: 40px !important;
+  width: 100% !important;
+}
+
+.card-inputs {
+  display: grid;
+  gap: 20px;
+}
+
+.password-container {
+  position: relative;
+  gap: 10px;
+  .edit-password {
+    color: var(--primary);
+    font-size: 12px;
+    left: 280px;
+    top: 15px;
+    position: absolute;
+    text-decoration: underline;
+    cursor: default;
+  }
+}

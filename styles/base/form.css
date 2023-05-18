@@ -1,0 +1,114 @@
+form {
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  outline-offset: 2px;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: transparent;
+}
+
+/* style add (red * ) after label that has input required*/
+form label:has(+ input[required]:not(:disabled)):after {
+  content: "*";
+  color: var(--danger);
+  margin-left: 0.25rem;
+}
+
+select,
+input,
+textarea {
+}
+
+select,
+input,
+textarea,
+label {
+}
+
+input::placeholder {
+}
+label {
+  /* font-size: 14px; */
+  /* color: var(--gray); */
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus-visible {
+}
+
+input:invalid:not(:focus, :placeholder-shown, [value], :empty) {
+  outline-color: rgba(255, 0, 0, 0.562);
+}
+
+input:focus {
+}
+
+input:focus + .error-msg {
+  display: none;
+}
+
+input:invalid:not(:focus) + .error-msg {
+  display: block;
+}
+
+input:placeholder-shown:not(:focus) {
+}
+
+input:placeholder-shown:not(:focus) + .error-msg {
+  display: none;
+}
+
+input:valid + .error-msg {
+  display: none;
+}
+
+form:valid [type="submit"] {
+  cursor: pointer;
+}
+
+form:invalid [type="submit"] {
+  opacity: 0.8;
+  cursor: not-allowed !important;
+}
+
+.error-msg,
+.helper-text,
+.caption {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.error-msg {
+  color: var(--danger);
+}
+
+.helper-text {
+  color: var(--secondary);
+}
+
+.caption {
+  color: var(--secondary);
+  text-align: right;
+}
+
+input:required,
+select:required,
+textarea:required {
+  background-color: rgba(255, 255, 255, 0.151);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+}

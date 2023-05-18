@@ -1,0 +1,151 @@
+@use 'sass:math';
+$grid-columns: 12;
+
+//base layout classes
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  & > * {
+    flex-grow: 0;
+  }
+}
+
+.carousel {
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-left: 2rem;
+
+  & > div {
+    // margin-left: -2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+@for $i from 1 through $grid-columns {
+  .grid.col-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    width: math.div($i * 100%, $grid-columns);
+  }
+}
+
+@include xs {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xs {
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include sm {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-sm {
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include md {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-md {
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include lg {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-lg {
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include xl {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xl {
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+.grid-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  justify-content: center;
+  gap: 13px;
+
+  .wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    background: #14141482;
+    .card {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+.tracks {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.view {
+  background: let(bg-200);
+  border-radius: let(radius);
+  border: 1px solid let(border);
+  color: let(mute);
+  display: flex;
+  width: 80px;
+  margin-left: auto;
+  cursor: pointer;
+  &:focus {
+    outline: 1px solid let(primary);
+  }
+  &:active {
+    background: let(bg-400);
+  }
+  & svg {
+    padding: 10px;
+    box-sizing: content-box;
+    font-size: 17px;
+    &:hover {
+      color: let(primary);
+    }
+  }
+  .active {
+    color: let(primary);
+    &:hover {
+    }
+  }
+}
+
+.sticky {
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  align-items: start;
+  z-index: 1;
+  // backdrop-filter: blur(1px);
+  // padding: 1rem 2rem 0 2rem;
+}

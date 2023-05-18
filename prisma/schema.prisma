@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String   @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @default(now()) @map("updated_at")
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id                     String          @id @default(auto()) @map("_id") @db.ObjectId
+  email                  String          @unique
+  name                   String
+  first_name             String?
+  last_name              String?
+  username               String?         @unique
+  email_verified         DateTime?
+  emailVerified          DateTime?
+  phone_verified         DateTime?
+  image                  String?
+  avatar                 String?
+  phone                  String?
+  // phone                  String?         @unique
+  birthdate              DateTime?
+  position               String?
+  locale                 String?
+  role                   String?         @default("USER")
+  bio                    String?
+  password               String?
+  gender                 String?
+  otp_enabled            Boolean?        @default(false)
+  otp_verified           Boolean?        @default(false)
+  type                   String?         @default("NORMAL")
+  status                 String?         @default("ACTIVE")
+  created_at             DateTime        @default(now()) @map("created_at")
+  updated_at             DateTime        @default(now()) @map("updated_at")
+  stripeCustomerId       String?         @map("stripe_customer_id")
+  stripeSubscriptionId   String?         @map("stripe_subscription_id")
+  stripePriceId          String?         @map("stripe_price_id")
+  stripeCurrentPeriodEnd DateTime?       @map("stripe_current_period_end")
+  address                Address?
+  preference             UserPreference?
+  accounts               Account[]
+  sessions               Session[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Otp {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user_id   String
+  secret    String
+  counter   Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model VerificationCode {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  code       String
+  expiration DateTime
+  createdAt  DateTime @default(now())
+  contact    String
+  type       String   @default("reset-password")
+}
+
+model Address {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  country String?
+  state   String?
+  city    String?
+  zip     String?
+  street  String?
+  user_id String  @unique @db.ObjectId
+  user    User    @relation(fields: [user_id], references: [id])
+}
+
+model UserPreference {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  email_updates Boolean
+  userId        String  @unique @db.ObjectId
+  user          User    @relation(fields: [userId], references: [id])
+}
+
+model Config {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String
+  cin            String
+  address        String
+  provider       String
+  speed          Int
+  phone          String?
+  service        String
+  serial_number  String
+  script         String
+  status         String   @default("pending")
+  payment_status String   @default("pending")
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+}

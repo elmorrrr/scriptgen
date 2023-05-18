@@ -1,0 +1,61 @@
+//genrate colors
+$primary: hsl(215deg 100% 50%);
+$secondary: #7876f7;
+
+$lighten: 5;
+$darken: 25;
+
+$light: #fdfdfd;
+$dark: #1b1b1b;
+$circle-size: 60px;
+$transition: all 600ms ease-in-out;
+
+$white: #fff;
+$black: #444a51;
+
+$bg: #1a1a1d;
+$bg-200: #242428;
+$bg-400: #2a2a2e;
+$bg-500: #25282c;
+
+$text: #e1e1eb;
+$mute: #b9b8bd;
+$gray: gray;
+
+$border: #80808023;
+
+$shadow: 2px 2px 2px #00000005;
+
+// spacing
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+$base-radius: 12px;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+// font sizes
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+
+$size: (
+  xs: "3px 10px",
+  sm: "3px 20px",
+  md: "10px 20px",
+  lg: "15px 40px",
+);
+
+$radius: (
+  xs: "5px",
+  sm: "10px",
+  md: "20px",
+  lg: "30px",
+  full: 100%,
+);

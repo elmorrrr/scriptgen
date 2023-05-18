@@ -1,0 +1,125 @@
+.playlist {
+  position: relative;
+  margin-top: -75px;
+  min-height: 600px;
+
+  &-bg {
+    background-position: left center;
+    background-blend-mode: darken;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%, 0 69%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .main-empty-bg {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      0deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(69, 69, 69, 1) 100%
+    );
+  }
+
+  // playlist header
+  header {
+    padding: 100px 50px 30px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    background: #181a1d1f;
+
+    .image-container {
+      background-color: let(bg);
+      // background-color: let();
+      display: grid;
+      place-items: center;
+      width: 210px;
+      height: 225px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 1px 5px 10px 1px #0000002c;
+
+      svg {
+        font-size: 100px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .playlist-type {
+      text-transform: capitalize;
+    }
+
+    .main-title {
+      .title {
+        font-size: 32px;
+        color: white;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .more-info {
+    display: flex;
+    a,
+    span {
+      padding: 8px;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    a:first-child {
+      padding-left: 0px;
+    }
+
+    .web-url > a {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .bottom-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    // .btn.play-btn {
+    //   @extend %btn-secondary-lg;
+    // }
+
+    .btn-love,
+    .btn-search,
+    .more {
+      box-sizing: content-box;
+      padding: 12px;
+      border: 1px solid rgb(216, 216, 216);
+      border-radius: 100%;
+      cursor: pointer;
+      display: flex;
+    }
+  }
+}

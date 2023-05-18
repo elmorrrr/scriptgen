@@ -1,0 +1,55 @@
+@function ends-with($string, $find: '%') {
+  @if (
+    str-slice($string, (str-length($string) - str-length($find) + 1)) == $find
+  ) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function color($color-variable, $value: 0%, $opacity: 100%) {
+  @if unitless($value) {
+    $value: #{$value + '%'};
+  } @else {
+    @if not ends-with(#{$value}) {
+      @error "#{$value} have unit, only percentage supported";
+    }
+  }
+
+  @if unitless($opacity) {
+    $opacity: #{$opacity + '%'};
+  } @else {
+    @if not ends-with(#{$opacity}) {
+      @error "#{$opacity} have unit, only percentage supported";
+    }
+  }
+
+  $color-variable-h: var(#{'--' + $color-variable + '-h'});
+  $color-variable-s: var(#{'--' + $color-variable + '-s'});
+  $color-variable-l: calc(var(#{'--' + $color-variable + '-l'}) - #{$value});
+  @return hsla(
+    $color-variable-h,
+    $color-variable-s,
+    $color-variable-l,
+    $opacity
+  );
+}
+
+@function let($color-variable) {
+  @return var(#{'--' + $color-variable});
+}
+
+// create color with light & dak option
+@function clr($base, $shade: base) {
+  $color: map-get(map-get($colors, $base), $shade);
+  @return $color;
+}
+
+@function textColor($color) {
+  @if (lightness($color) > 55) {
+    @return black;
+  } @else {
+    @return white;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ScriptGen",
+  "title": "A starter template (lite)",
+  "description": "Starter template, created with Nextjs 13 and Typescript with an advanced folder structure for large-scale applications. supported MDX including theming and authentication system (SEO & Accessibility 100%)",
+  "type": "website",
+  "url": "https://aminoo.vercel.app",
+  "logo": "/brand.svg",
+  "tachnologeis": [
+    "Nextjs13 (next-auth)",
+    "Typescript",
+    "Redux RTK",
+    "SASS",
+    "Tailwindcss",
+    "Framer motion",
+    "Flowbite"
+  ],
+  "keywords": ["Starter template", "Next.js"],
+  "creator": "@aminbenz",
+  "publisher": "@aminbenz",
+  "authors": [{ "name": "Amin Benz", "url": "https://github.com/aminbenz" }],
+  "category": "Template",
+  "locale": "en-US",
+  "theme_color": [
+    { "media": "(prefers-color-scheme: light)", "color": "cyan" },
+    { "media": "(prefers-color-scheme: dark)", "color": "black" }
+  ],
+  "color_scheme": "light dark"
+}

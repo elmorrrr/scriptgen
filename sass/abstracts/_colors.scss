@@ -1,0 +1,84 @@
+//buttons color
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  tiffany: #39f0c6,
+  purple: #3941f0,
+  danger: #dc3545,
+  success: #28a745,
+  warn: #ffc107,
+  info: #17a2b8,
+  light: #f8f9fa,
+  dark: #343a40,
+  gray: #6c757d,
+);
+
+$root_colors: (
+  primary: $primary,
+  secondary: $secondary,
+  // dark theme
+  bg: $bg,
+  bg-200: $bg-200,
+  bg-400: $bg-400,
+  bg-500: $bg-500,
+  text: $text,
+  gray: $gray,
+  mute: $mute,
+  disabled: #e9ecef,
+  border: $border,
+  radius: 10px,
+  shadow: 2px 2px 2px #00000005,
+);
+
+$colors_k: (
+  primary: (
+    base: $primary,
+    light: lighten($primary, $lighten),
+    dark: darken($primary, $darken),
+  ),
+  secondary: (
+    base: $secondary,
+    light: lighten($secondary, $lighten),
+    dark: darken($secondary, $darken),
+  ),
+  purple: (
+    base: #3941f0,
+    light: lighten(#3941f0, $lighten),
+    dark: darken(#3941f0, $darken),
+  ),
+  danger: (
+    base: #dc3545,
+    light: #f06565,
+    dark: #b80000,
+  ),
+  success: (
+    base: #28a745,
+    light: #3eb47d,
+    dark: #1b5e20,
+  ),
+  warn: (
+    base: #ffc107,
+    light: #ffd966,
+    dark: #b38600,
+  ),
+  info: (
+    base: #17a2b8,
+    light: #2fccc6,
+    dark: #007096,
+  ),
+  light: (
+    base: #f8f9fa,
+    light: #fafafa,
+    dark: #e9ecef,
+  ),
+  dark: (
+    base: #343a40,
+    light: #4a4a4a,
+    dark: #1a1b1d,
+  ),
+  neutral: (
+    base: #69777f,
+    light: #b2cad8,
+    dark: $black,
+  ),
+);
